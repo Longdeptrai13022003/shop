@@ -13,9 +13,6 @@ class AuthController extends Controller
         
     }
     public function index(){
-        if(Auth::id()>0){
-            return redirect()->route('dashboard.index');
-        }
         return view("backend.auth.login");
     }
     public function login(AuthRequest $request){
@@ -24,16 +21,16 @@ class AuthController extends Controller
             'password'=>$request->input('password')];
         
         if(Auth::attempt( $credential )){
-            return redirect()->route('dashboard.index');
+            return redirect()->route('dashboard.index')->with('login_success','Đăng nhập thành công !');
         }
         else{
-            return redirect()->route('auth.admin');
+            return redirect()->route('auth.admin')->with('login_error','Sai tên đăng nhập hoặc mật khẩu !');
         }
     }
     public function logout(Request $request){
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('auth.admin');
+        return redirect()->route('auth.admin')->with('logout_success','Đăng xuất thành công !');
     }
 }
