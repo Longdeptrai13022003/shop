@@ -1,0 +1,25 @@
+table .image{
+    height: 100px;
+    width: auto;
+    display: block;
+}
+.img-cover img{
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+/* table strong{
+    min-width: 100px;
+    display: inline-block;
+} */
+.table >thead >tr >th, 
+.table >tbody >tr >th, 
+.table >tfoot >tr >th,
+.table >thead >tr >td,
+.table >tbody >tr >td,
+.table >tfoot >tr >td{
+    vertical-align: middle;
+    text-align: center;
+} 
+
