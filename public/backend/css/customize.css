@@ -23,3 +23,13 @@ table .image{
     text-align: center;
 } 
 
+.icheckbox_square-green{
+    border-radius: 5px;
+}
+.dataTables_length, .dataTables_info{
+    display: none !important;
+}
+#DataTables_Table_0_paginate {
+    display: none !important;
+}
+

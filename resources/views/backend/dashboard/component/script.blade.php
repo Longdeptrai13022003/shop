@@ -4,6 +4,7 @@
 
 <script src="backend/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="backend/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src='backend/library/library.js'></script>
 
 <!-- jQuery UI -->
 <script src="backend/js/plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -49,3 +50,51 @@
         @endif
     });
 </script>
+
+<!-- iCheck -->
+<script src="backend/js/plugins/iCheck/icheck.min.js"></script>
+<script src="backend/js/plugins/dataTables/datatables.min.js"></script>
+<!-- Custom and plugin javascript -->
+    <script src="backend/js/inspinia.js"></script>
+    <script src="backend/js/plugins/pace/pace.min.js"></script>
+
+
+<script>
+    $(document).ready(function(){
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+
+<!-- đống tìm kiếm, xuất file -->
+<script>
+    $(document).ready(function(){
+        $('.dataTables-example').DataTable({
+            pageLength: 25,
+            responsive: true,
+            dom: '<"html5buttons"B>lTfgitp',
+            buttons: [
+                { extend: 'copy'},
+                {extend: 'csv'},
+                {extend: 'excel', title: 'ExampleFile'},
+                {extend: 'pdf', title: 'ExampleFile'},
+
+                {extend: 'print',
+                 customize: function (win){
+                        $(win.document.body).addClass('white-bg');
+                        $(win.document.body).css('font-size', '12px');
+
+                        $(win.document.body).find('table')
+                                .addClass('compact')
+                                .css('font-size', 'inherit');
+                }
+                }
+            ]
+
+        });
+
+    });
+</script>
+

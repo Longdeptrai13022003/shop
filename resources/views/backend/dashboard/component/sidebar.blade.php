@@ -3,11 +3,11 @@
         <ul class="nav metismenu" id="side-menu">
             <li class="nav-header">
                 <div class="dropdown profile-element"> <span>
-                        <img alt="image" class="img-circle" src="backend/img/profile_small.jpg" />
+                        <img alt="image" class="img-circle" src="backend/img/long.jpg" />
                          </span>
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                        <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                         </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                        <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">Trần Đức Long</strong>
+                         </span> <span class="text-muted text-xs block">Full Stack Developer<b class="caret"></b></span> </span> </a>
                     <ul class="dropdown-menu animated fadeInRight m-t-xs">
                         <li><a href="profile.html">Profile</a></li>
                         <li><a href="contacts.html">Contacts</a></li>
@@ -17,7 +17,7 @@
                     </ul>
                 </div>
                 <div class="logo-element">
-                    IN+
+                    LONG'S
                 </div>
             </li>
             <li class="active">

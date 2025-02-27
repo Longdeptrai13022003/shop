@@ -6,6 +6,10 @@
 
     <link href="backend/css/bootstrap.min.css" rel="stylesheet">
     <link href="backend/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="backend/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="backend/css/plugins/steps/jquery.steps.css" rel="stylesheet">
+    <link href="backend/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
+    <link href="backend/css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 
     <link href="backend/css/animate.css" rel="stylesheet">
     @if(isset($config['css']) && is_array($config['css']))
