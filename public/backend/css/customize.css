@@ -13,15 +13,15 @@ table .image{
     min-width: 100px;
     display: inline-block;
 } */
-.table >thead >tr >th, 
-.table >tbody >tr >th, 
+.table >thead >tr >th,
+.table >tbody >tr >th,
 .table >tfoot >tr >th,
 .table >thead >tr >td,
 .table >tbody >tr >td,
 .table >tfoot >tr >td{
     vertical-align: middle;
     text-align: center;
-} 
+}
 
 .icheckbox_square-green{
     border-radius: 5px;
@@ -41,3 +41,32 @@ input[type="search"]{
     padding: 5px;
     width: 100% !important;
 }
+
+/* create */
+.box .ibox{
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.mt20{
+    margin-top: 20px;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+
+.control-label{
+    display: block;
+}
+.panel-title{
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #7e7676;
+}
+
+.form-control{
+    border-radius: 5px;
+    height: 31px !important;
+}
+
+

@@ -9,7 +9,7 @@
                 <a>Quản lý thành viên</a>
             </li>
             <li class="active">
-                <strong>{{config('apps.user.title')}}</strong>
+                <strong>{{ $title }}</strong>
             </li>
     </div>
 </div>
