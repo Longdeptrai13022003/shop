@@ -111,5 +111,16 @@
             toastr.error("{{ session('login_error') }}");
         @endif
     });
+    document.addEventListener("DOMContentLoaded", function () {
+        @if(session('authen_error'))
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'slideDown',
+                timeOut: 4000
+            };
+            toastr.error("{{ session('authen_error') }}");
+        @endif
+    });
 </script>
 </html>

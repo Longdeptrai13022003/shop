@@ -14,6 +14,6 @@
         </select>
     </div>
     <div class="col-sm-3">
-        <a href="" class="btn btn-primary"><i class="fa fa-plus"></i> Thêm thành viên mới</a>
+        <a href="{{ route('user.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i> Thêm thành viên mới</a>
     </div>
 </div>

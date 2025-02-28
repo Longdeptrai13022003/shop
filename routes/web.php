@@ -10,11 +10,16 @@ use App\Http\Controllers\Backend\UserController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// DASHBOARD
 Route::get('dashboard/index', [DashboardController::class,'index'])->name('dashboard.index')->middleware(AuthenticateMiddleware::class);
+
 Route::get('admin', [AuthController::class,'index'])->name('auth.admin')->middleware(LoginMiddleware::class);
 Route::post('login', [AuthController::class,'login'])->name('auth.login');
 Route::get('logout', [AuthController::class,'logout'])->name('auth.logout');
 
 // USER
-Route::get('user/index', [UserController::class,'index'])->name('user.index')->middleware(AuthenticateMiddleware::class);
+// Route::get('user/index', [UserController::class,'index'])->name('user.index')->middleware(AuthenticateMiddleware::class); old ver
+Route::group(['prefix'=> 'user'], function () {
+    Route::get('index', [UserController::class,'index'])->name('user.index')->middleware(AuthenticateMiddleware::class);
+    Route::get('create', [UserController::class,'create'])->name(   'user.create')->middleware(AuthenticateMiddleware::class);
+});

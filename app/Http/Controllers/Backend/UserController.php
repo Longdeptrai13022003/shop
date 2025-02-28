@@ -21,11 +21,18 @@ class UserController extends Controller
         // $users = User::paginate(15);
 
         $config = $this->config();
+        $config['seo']=config('apps.user');
         $template='backend.user.index';
         return view('backend.dashboard.layout', compact(
          'template',
          'config',
          'users'
+        ));
+    }
+    public function create(){
+        $template='backend.user.create';
+        return view('backend.dashboard.layout', compact(
+         'template'
         ));
     }
     private function config(){

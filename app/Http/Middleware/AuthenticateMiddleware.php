@@ -17,7 +17,7 @@ class AuthenticateMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if(Auth::id()==null){
-            return redirect()->route('auth.admin');
+            return redirect()->route('auth.admin')->with('authen_error', 'You need to login to access this page');
         }
         return $next($request);
     }

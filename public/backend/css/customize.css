@@ -32,4 +32,12 @@ table .image{
 #DataTables_Table_0_paginate {
     display: none !important;
 }
-
+.dataTables_filter label{
+    margin-right: 50%;
+}
+input[type="search"]{
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 100% !important;
+}
