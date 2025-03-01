@@ -23,18 +23,25 @@ class LocationController extends Controller
         return view("backend.auth.login");
     }
     public function getLocation(Request $request){
-        $province_id=$request->input('province_id');
+        // $province_id=$request->input('province_id');
+        $get=$request->input();
 
-        $province = $this->provinceRepository->findById($province_id, ['code','name'], ['districts']);
+        $html='';
+        if($get['target']=='districts'){
+            $province = $this->provinceRepository->findById($get['data']['location_id'], ['code','name'], ['districts']);
+            $html= $this->renderHTML($province->districts);
+        } else if($get['target']== 'wards'){
+            $district=$this->districtRepository->findById($get['data']['location_id'], ['code','name'], ['wards']);
+            $html= $this->renderHTML($district->wards, '[Chọn Phường/Xã]');
+        }
 
         $response=[
-            'html'=> $this->renderHTML($province->districts),
+            'html'=> $html
         ];
         return response()->json($response);
-
     }
-    public function renderHTML($districts){
-        $html='<option value="0">[Chọn Quận/Huyện]</option>';
+    public function renderHTML($districts, $root='[Chọn Quận/Huyện]'){
+        $html='<option value="0">'.$root.'</option>';
         foreach($districts as $district){
             $html .= '<option value="'.$district->code.'">'.$district->name.'</option>';
         }

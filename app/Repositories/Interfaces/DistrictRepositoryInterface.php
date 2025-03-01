@@ -9,5 +9,6 @@ namespace App\Repositories\Interfaces;
 interface DistrictRepositoryInterface
 {
     public function all();
-    public function findDistrictByProvinceID(int $provinceID);
+    // public function findDistrictByProvinceID(int $provinceID);
+    public function findById(int $modelId, array $columns = ['*'], array $relations = []);
 }

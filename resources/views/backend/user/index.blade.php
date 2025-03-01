@@ -1,3 +1,4 @@
+@include('backend.user.component.script')
 @include('backend.dashboard.component.breadcum', ['title' => $config['seo']['index']['title']])
     <div class="wrapper wrapper-content animated fadeInRight">
         <div class="row">
