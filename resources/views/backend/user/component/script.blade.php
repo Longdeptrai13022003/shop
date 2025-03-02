@@ -22,6 +22,17 @@
             toastr.success("{{ session('success_update') }}");
         @endif
     });
+    document.addEventListener("DOMContentLoaded", function () {
+        @if(session('success_delete'))
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'slideDown',
+                timeOut: 4000
+            };
+            toastr.success("{{ session('success_delete') }}");
+        @endif
+    });
 </script>
 
 

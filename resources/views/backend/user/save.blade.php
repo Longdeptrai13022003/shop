@@ -1,4 +1,9 @@
-@include('backend.dashboard.component.breadcum', ['title' => $config['seo']['create']['title']])
+@if ($config['method']=='create')
+    @include('backend.dashboard.component.breadcum', ['title' => $config['seo']['create']['title']])
+@else
+    @include('backend.dashboard.component.breadcum', ['title' => $config['seo']['update']['title']])
+@endif
+
 @if ($errors->any())
     <div class="alert alert-danger">
         <ul>

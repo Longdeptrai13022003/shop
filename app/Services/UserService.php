@@ -24,8 +24,16 @@ class UserService implements UserServiceInterface
     {
         $this->userRepository = $userRepository;
     }
-    public function paginate(){
-        $users = $this->userRepository->getAllPaginate();
+    public function paginate($request){
+
+        $condition['keyword']=addslashes($request->input('keyword'));
+
+        $perPage = $request->integer('perpage');
+        $users = $this->userRepository->pagination(['id' , 'name' , 'email' , 'phone' , 'address' , 'birthday' , 'ward_id' , 'publish' , 'description'],
+                                                    $condition,
+                                                    [],
+                                                    ['path'=>'user/index'],
+                                                    $perPage);
         return $users;
     }
     public function create($request){
@@ -65,5 +73,16 @@ class UserService implements UserServiceInterface
         $carbonDate = Carbon::createFromFormat('Y-m-d', $birthday);
         $birthday = $carbonDate->format('Y-m-d H:i:s');
         return $birthday;
+    }
+    public function destroy($id){
+        DB::beginTransaction();
+        try {
+            $user=$this->userRepository->delete($id);
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
     }
 }

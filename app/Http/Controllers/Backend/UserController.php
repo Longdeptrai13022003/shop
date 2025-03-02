@@ -26,9 +26,9 @@ class UserController extends Controller
         $this->provinceRepository = $provinceRepository;
         $this->userRepository = $userRepository;
     }
-    public function index(){
+    public function index(Request $request){
 
-        $users = $this->userService->paginate();
+        $users = $this->userService->paginate($request);
         // $users = User::paginate(15);
 
         $config = [
@@ -106,5 +106,21 @@ class UserController extends Controller
             return redirect()->route('user.index')->with('success_update','Cập nhật người dùng thành công');
         }
         return redirect()->route('user.index')->with('error_update','Cập nhật người dùng không thành công, hãy thử lại');
+    }
+    public function delete($id){
+        $user = $this->userRepository->findById($id);
+        $config['seo']=config('apps.user');
+        $template='backend.user.delete';
+        return view('backend.dashboard.layout', compact(
+         'template',
+         'config',
+        'user'
+        ));
+    }
+    public function destroy($id, Request $request){
+        if($this->userService->destroy($id)){
+            return redirect()->route('user.index')->with('success_delete','Xoá người dùng thành công');
+        }
+        return redirect()->route('user.index')->with('error_delete','Xoá người dùng không thành công, hãy thử lại');
     }
 }

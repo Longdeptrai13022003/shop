@@ -58,9 +58,9 @@
                         </td>
                         <td>
                             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
-                            <a href="" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                            <a href="{{ route('user.delete', $user->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
-                        <td><input type="checkbox" class="js-switch" checked /></td>
+                        <td><input type="checkbox" class="js-switch" value="{{ $user->publish }}" {{ ($user->publish == 1) ? 'checked' : '' }} /></td>
                     </tr>
                 @endforeach
             @endif

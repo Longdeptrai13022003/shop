@@ -6,6 +6,12 @@ return [
     ],
     'create' => [
         'title' => 'Thêm thành viên'
+    ],
+    'update'=> [
+        'title'=> 'Cập nhật thông tin thành viên'
+    ],
+    'delete' => [
+        'title' => 'Xoá thành viên'
     ]
 ];
 ?>

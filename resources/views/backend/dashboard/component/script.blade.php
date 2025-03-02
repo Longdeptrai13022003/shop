@@ -12,6 +12,9 @@
 <script src="backend/js/plugins/toastr/toastr.min.js"></script>
 <!-- Toastr CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<!-- FontAwesome (Icons đẹp) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
 
 @if(isset($config['js']) && is_array($config['js']))
@@ -72,27 +75,62 @@
 <script>
     $(document).ready(function(){
         $('.dataTables-example').DataTable({
-            pageLength: 25,
+            pageLength: parseInt($('.perpage').val()),
             responsive: true,
+            searching: false,
             dom: '<"html5buttons"B>lTfgitp',
+            // buttons: [
+            //     { extend: 'copy'},
+            //     {extend: 'csv'},
+            //     {extend: 'excel', title: 'ExampleFile'},
+            //     {extend: 'pdf', title: 'ExampleFile'},
+
+            //     {extend: 'print',
+            //      customize: function (win){
+            //             $(win.document.body).addClass('white-bg');
+            //             $(win.document.body).css('font-size', '12px');
+
+            //             $(win.document.body).find('table')
+            //                     .addClass('compact')
+            //                     .css('font-size', 'inherit');
+            //     }
+            //     }
+            // ]
             buttons: [
-                { extend: 'copy'},
-                {extend: 'csv'},
-                {extend: 'excel', title: 'ExampleFile'},
-                {extend: 'pdf', title: 'ExampleFile'},
-
-                {extend: 'print',
-                 customize: function (win){
-                        $(win.document.body).addClass('white-bg');
-                        $(win.document.body).css('font-size', '12px');
-
-                        $(win.document.body).find('table')
-                                .addClass('compact')
-                                .css('font-size', 'inherit');
-                }
-                }
-            ]
-
+        {
+            extend: 'copy',
+            text: '<i class="fas fa-copy"></i> Sao chép',
+            className: 'btn btn-primary'
+        },
+        {
+            extend: 'csv',
+            text: '<i class="fas fa-file-csv"></i> CSV',
+            className: 'btn btn-success'
+        },
+        {
+            extend: 'excel',
+            text: '<i class="fas fa-file-excel"></i> Excel',
+            className: 'btn btn-warning'
+        },
+        {
+            extend: 'pdf',
+            text: '<i class="fas fa-file-pdf"></i> PDF',
+            orientation: 'landscape',
+            className: 'btn btn-danger'
+        },
+        {
+            extend: 'print',
+            text: '<i class="fas fa-print"></i> In',
+            className: 'btn btn-info',
+            customize: function (win){
+                $(win.document.body).addClass('white-bg');
+                $(win.document.body).css('font-size', '12px');
+                $(win.document.body).find('table')
+                    .addClass('compact')
+                    .css('font-size', 'inherit');
+            }
+        }
+    ]
         });
 
     });
