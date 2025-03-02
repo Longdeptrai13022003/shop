@@ -12,7 +12,7 @@
                 </select>
             </div>
             <div class="col-sm-3 m-b-xs">
-                <select name="" id="" class="input-sm form control input-s-s inline">
+                <select name="" id="" class="input-sm form control input-s-s inline setupSelect2">
                     <option value="0" class="text-center">Chọn nhóm thành viên</option>
                     <option value="1">Admin</option>
                     <option value="2">User</option>

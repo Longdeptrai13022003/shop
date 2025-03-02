@@ -42,8 +42,7 @@
                             {{ $user->birthday }}
                         </td>
                         <td>
-                            {{ $user->address }}, {{ $user->ward_name }}, {{ $user->district_name }}, {{ $user->province_name }}
-
+                            {{ $user->address }}
                         </td>
                         <td>
                             {{ $user->ward_id }}
@@ -61,7 +60,7 @@
                             <a href="{{ route('user.edit', $user->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a>
                             <a href="{{ route('user.delete', $user->id) }}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
                         </td>
-                        <td><input type="checkbox" class="js-switch" value="{{ $user->publish }}" {{ ($user->publish == 1) ? 'checked' : '' }} /></td>
+                        <td><input type="checkbox" class="js-switch status" data-field="publish" data-modelId={{ $user->id }} data-model="User" value="{{ $user->publish }}" {{ ($user->publish == 1) ? 'checked' : '' }} /></td>
                     </tr>
                 @endforeach
             @endif
