@@ -22,7 +22,7 @@
             <div class="col-sm-5">
                 <div class="input-group">
                     <input type="text" name="keyword" placeholder="Please enter a keyword..." class="form-control" value="{{ request('keyword') ?:old('keyword') }}">
-                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-primary">Search</button><span>
+                    <span class="input-group-btn"><button type="submit" name="search" class="btn btn-primary"><i class="fa fa-search"></i> Search</button><span>
                 </div>
             </div>
             <div class="col-sm-2">

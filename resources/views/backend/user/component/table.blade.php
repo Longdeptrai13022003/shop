@@ -42,7 +42,8 @@
                             {{ $user->birthday }}
                         </td>
                         <td>
-                            {{ $user->address }}
+                            {{ $user->address }}, {{ $user->ward_name }}, {{ $user->district_name }}, {{ $user->province_name }}
+
                         </td>
                         <td>
                             {{ $user->ward_id }}

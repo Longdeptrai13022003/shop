@@ -29,7 +29,7 @@ class UserService implements UserServiceInterface
         $condition['keyword']=addslashes($request->input('keyword'));
 
         $perPage = $request->integer('perpage');
-        $users = $this->userRepository->pagination(['id' , 'name' , 'email' , 'phone' , 'address' , 'birthday' , 'ward_id' , 'publish' , 'description'],
+        $users = $this->userRepository->pagination(['id' , 'name' , 'email' , 'phone' , 'address' , 'birthday' , 'ward_id' , 'district_id' , 'province_id' , 'publish' , 'description'],
                                                     $condition,
                                                     [],
                                                     ['path'=>'user/index'],
