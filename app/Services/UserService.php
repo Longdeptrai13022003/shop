@@ -69,6 +69,18 @@ class UserService implements UserServiceInterface
             return false;
         }
     }
+    public function updateStatus($post = []){
+        DB::beginTransaction();
+        try {
+            $payload[$post['field']] = (($post['value']==1)?0:1);
+            $user = $this->userRepository->update($post['modelId'], $payload);
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return false;
+        }
+    }
     private function convertBirthday2Date($birthday=''){
         $carbonDate = Carbon::createFromFormat('Y-m-d', $birthday);
         $birthday = $carbonDate->format('Y-m-d H:i:s');

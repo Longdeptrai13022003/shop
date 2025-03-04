@@ -1,7 +1,7 @@
 (function($){
     "use strict";
     var HT={};
-    var _token=$('meta[name="csrf-token"]').attr('content')
+    var _token=$('meta[name="csrf-token"]').attr('content');
 
     HT.switchery=() => {
         $('.js-switch').each(function(){
@@ -40,9 +40,30 @@
             })
         }
     }
+    HT.checkAll = () => {
+        $('#checkAll').change(function() {
+            let isChecked = $(this).prop('checked');
+            $('.checkBoxItem').prop('checked', isChecked).closest('tr').toggleClass('highlight', isChecked);
+        });
+
+        $('.checkBoxItem').change(function() {
+            let isChecked = $(this).prop('checked');
+            $(this).closest('tr').toggleClass('highlight', isChecked);
+
+            if ($('.checkBoxItem:checked').length === $('.checkBoxItem').length) {
+                $('#checkAll').prop('checked', true);
+            } else {
+                $('#checkAll').prop('checked', false);
+            }
+        });
+    };
+
+
+
     $(document).ready(function(){
         HT.switchery();
         HT.select2();
         HT.changeStatus();
+        HT.checkAll();
     });
 })(jQuery);

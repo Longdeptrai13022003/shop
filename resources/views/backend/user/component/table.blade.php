@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th>
-                    <input type="checkbox" id="checkAll" value="" class="i-checks">
+                    <input type="checkbox" id="checkAll" value="" class="">
                 </th>
                 <th>STT</th>
                 <th>Ảnh</th>
@@ -24,7 +24,7 @@
             @if(isset($users) && is_object($users))
                 @foreach ($users as $user)
                     <tr>
-                        <td><input type="checkbox" class="i-checks" name="input[]"></td>
+                        <td><input type="checkbox" class="checkBoxItem" name="input[]" value="{{ $user->id }}"></td>
                         <td>{{ $user->id }}</td>
                         <td>
                             <span class="image img-cover"><img src="./backend/img/linh.jpg" alt=""></span>
