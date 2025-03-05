@@ -58,6 +58,43 @@
         });
     };
 
+    HT.changeStatusAll = () => {
+        if($('.changeStatusAll').length){
+            $(document).on('click', '.changeStatusAll', function(e){
+                let _this=$(this)
+                let id = []
+                $('.checkBoxItem').each(function(){
+                    let checkBox=$(this)
+                    if(checkBox.prop('checked')){
+                        id.push(checkBox.val())
+                    }
+                })
+
+                let option = {
+                    'value': _this.attr('data-value'),
+                    'model': _this.attr('data-model'),
+                    'field': _this.attr('data-field'),
+                    'id': id,
+                    '_token': _token
+                }
+                $.ajax({
+                    url: 'ajax/dashboard/changeStatusAll',
+                    type: 'POST',
+                    data: option,
+                    dataType: 'json',
+                    success: function(res){
+                        if(res.flag==true){
+                            location.reload();
+                        }
+                    },
+                    error: function(err){
+                        console.log(err);
+                    }
+                });
+                e.preventDefault()
+            })
+        }
+    }
 
 
     $(document).ready(function(){
@@ -65,5 +102,6 @@
         HT.select2();
         HT.changeStatus();
         HT.checkAll();
+        HT.changeStatusAll();
     });
 })(jQuery);
